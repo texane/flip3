@@ -5,15 +5,8 @@
 static void flip3(uint8_t* p, size_t n)
 {
   static const uint8_t masks[3] = { 0x24, 0x92, 0x49 };
-
   size_t i;
-
-  for (i = 0; i < n; ++i)
-  {
-    const uint8_t m = masks[i % 3];
-    const uint8_t x = p[i];
-    p[i] ^= m;
-  }
+  for (i = 0; i < n; ++i) p[i] ^= masks[i % 3];
 }
 
 int main(int ac, char** av)
